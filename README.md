@@ -33,19 +33,29 @@ A modern full-stack task management application built with .NET Core, featuring 
 ## Project Structure
 
 ```
-backend/
-└── TaskManagementApi/
-    ├── Controllers/
-    │   └── AuthController.cs
-    ├── Models/
-    │   ├── Task.cs
-    │   ├── User.cs
-    │   └── DTOs/
-    │       └── LoginModel.cs
-    ├── Data/
-    │   └── TaskManagementContext.cs
-    └── Services/
-        └── JwtService.cs
+task-manager/
+├── frontend/
+│   └── task-manager-frontend/
+│       ├── components/
+│       │   └── LandingPage.tsx
+│       └── src/
+│           ├── App.tsx
+│           └── main.tsx
+├── backend/
+│   └── TaskManagementApi/
+│       ├── Controllers/
+│       │   └── AuthController.cs
+│       ├── Models/
+│       │   ├── Task.cs
+│       │   ├── User.cs
+│       │   ├── Category.cs
+│       │   └── DTOs/
+│       │       └── LoginModel.cs
+│       |       └── RegisterModel.cs
+│       ├── Data/
+│       │   └── TaskManagementContext.cs
+│       └── Services/
+│           └── JwtService.cs
 ```
 
 ## Getting Started
