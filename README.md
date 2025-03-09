@@ -2,7 +2,7 @@
 
 A modern full-stack task management application built with .NET Core, featuring secure authentication and robust database design.
 
-## 🚀 Current Implementation
+## Current Implementation
 
 ### Authentication System
 - User registration with email and password
@@ -16,7 +16,7 @@ A modern full-stack task management application built with .NET Core, featuring 
 - Categories table for task organization
 - Proper foreign key constraints and data validation
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend (.NET Core)
 - .NET 9.0
@@ -30,7 +30,7 @@ A modern full-stack task management application built with .NET Core, featuring 
 - Entity Framework Code First approach
 - Data models with proper relationships
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 backend/
@@ -48,7 +48,7 @@ backend/
         └── JwtService.cs
 ```
 
-## 🚦 Getting Started
+## Getting Started
 
 ### Prerequisites
 - .NET 9.0 SDK
@@ -81,7 +81,7 @@ dotnet ef database update
 dotnet run
 ```
 
-## 🌐 Current API Endpoints
+## Current API Endpoints
 
 ### Authentication
 - POST `/api/auth/register` - Register new user
@@ -100,7 +100,7 @@ dotnet run
   }
   ```
 
-## 🔜 Planned Features
+## Planned Features
 
 - Task CRUD operations
 - Frontend implementation with React
