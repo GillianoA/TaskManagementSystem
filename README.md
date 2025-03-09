@@ -57,7 +57,7 @@ backend/
 ### Backend Setup
 1. Clone the repository
 ```bash
-git clone [your-repository-url]
+git clone https://github.com/GillianoA/TaskManagementSystem
 cd backend/TaskManagementApi
 ```
 
@@ -109,7 +109,7 @@ dotnet run
 - User profile management
 - Task categories management
 
-## 📝 License
+## License
 
 This project is licensed under the Apache License, Version 2.0 - see the [LICENSE](https://github.com/GillianoA/TaskManagementSystem?tab=Apache-2.0-1-ov-file) file for details.
 
