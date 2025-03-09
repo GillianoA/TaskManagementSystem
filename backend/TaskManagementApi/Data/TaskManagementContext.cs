@@ -31,11 +31,12 @@ public class TaskManagementContext : DbContext{
             entity.Property(t => t.Title).IsRequired().HasMaxLength(200);
             entity.Property(t => t.Description).IsRequired().HasMaxLength(1000);
             entity.Property(t => t.Status).IsRequired();
-            entity.Property(t => t.Prioity).IsRequired();
+            entity.Property(t => t.Priority).IsRequired();
+            entity.Property(t => t.CategoryId).IsRequired(false);
 
             entity.HasOne(t => t.Category)
                 .WithMany(c => c.Tasks)
-                .HasForeignKey(t => t.UserId)
+                .HasForeignKey(t => t.CategoryId)
                 .OnDelete(DeleteBehavior.SetNull);
 
             entity.ToTable(t => t.HasCheckConstraint("CK_Task_Priority", "Priority >= 1 AND Priority <= 5"));
