@@ -10,25 +10,28 @@ public class JwtService{
     private readonly int _expiryMinutes;
 
     public JwtService(IConfiguration configuration){
-        //Intiliaze JwtService with configuration values
-        _secret = configuration["Jwt:Secret"];
-        _issuer = configuration["Jwt:Issuer"];
-        _audience = configuration["Jwt:Audience"];
-        _expiryMinutes = int.Parse(configuration["Jwt:ExpiryMinutes"]);
+        _secret = configuration["Jwt:Secret"] ?? 
+            throw new ArgumentNullException("Jwt:Secret configuration is missing");
+        _issuer = configuration["Jwt:Issuer"] ?? 
+            throw new ArgumentNullException("Jwt:Issuer configuration is missing");
+        _audience = configuration["Jwt:Audience"] ?? 
+            throw new ArgumentNullException("Jwt:Audience configuration is missing");
+        
+        var expiryMinutes = configuration["Jwt:ExpiryMinutes"];
+        if (string.IsNullOrEmpty(expiryMinutes) || !int.TryParse(expiryMinutes, out _expiryMinutes)){
+            throw new ArgumentException("Jwt:ExpiryMinutes configuration is missing or invalid");
+        }
     }
 
     public string GenerateToken(User user){
-        //Create claims for the token based on user information
         var claims = new[]{
             new Claim(JwtRegisteredClaimNames.Sub, user.Username),
             new Claim(JwtRegisteredClaimNames.Email, user.Email),
             new Claim("id", user.Id.ToString()),
-            //id for token
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secret));
-
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
