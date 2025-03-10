@@ -10,6 +10,12 @@ A modern full-stack task management application built with .NET Core, featuring 
 - Password hashing using BCrypt
 - Input validation and error handling
 
+### API Documentation
+- OpenAPI specification generation
+- Interactive Swagger UI documentation
+- API endpoint testing interface
+- Detailed request/response schemas
+
 ### Database Structure
 - Users table with secure password storage
 - Tasks table with relationships to users
@@ -24,6 +30,8 @@ A modern full-stack task management application built with .NET Core, featuring 
 - SQL Server (Azure)
 - BCrypt.Net for password hashing
 - JWT authentication
+- Swagger/OpenAPI for documentation
+- Microsoft.AspNetCore.OpenApi for spec generation
 
 ### Database
 - Azure SQL Database
@@ -90,6 +98,11 @@ dotnet ef database update
 ```bash
 dotnet run
 ```
+
+6. Access API documentation
+- Navigate to `{baseUrl}/swagger` in development mode
+- Interactive API documentation and testing interface available
+- Full OpenAPI specification at `{baseUrl}/swagger/v1/swagger.json`
 
 ## Current API Endpoints
 
