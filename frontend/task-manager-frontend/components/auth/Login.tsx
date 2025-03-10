@@ -27,13 +27,13 @@ const Login: React.FC = () => {
     }
 
     return(
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-blue-50">
             <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
                 <div className="flex justify-center">
                     <ListTodo className="h-12 w-12 text-blue-600 stroke-2" />
                 </div>
-                <h2 className="text-2xl font-bold text-black-500">TaskFlow</h2>
-                <h3 className="text-sm mb-6 text-gray-500 text-wrap">
+                <h2 className="text-2xl font-bold text-black-500 text-center">TaskFlow</h2>
+                <h3 className="text-sm mb-6 text-gray-500 text-center">
                     Welcome back! Please login to continue.
                 </h3>
                 {error && <div className="text-red-500 mb-4">{error}</div>}

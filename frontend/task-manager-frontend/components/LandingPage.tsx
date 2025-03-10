@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const LandingPage: React.FC = () => {
+    const navigate = useNavigate();
+    const handleGetStarted = () => {
+        navigate('/register');
+    };
+
     return(
         <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">
             <header className="text-center p-8">
@@ -10,7 +16,7 @@ const LandingPage: React.FC = () => {
                 <p className="text-lg mb-6">
                     Organize your tasks effortlessly.
                 </p>
-                <button className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700">
+                <button onClick={handleGetStarted} className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700">
                     Get Started
                 </button>
             </header>

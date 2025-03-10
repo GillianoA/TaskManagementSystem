@@ -29,13 +29,13 @@ const Register: React.FC = () => {
     };
 
     return( 
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
+        <div className="flex flex-col items-center justify-center min-h-screen bg-blue-50">
             {/* Form container styled as a white card with padding and shadow */}
             <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
                 {/* Blue header for the form */}
                 <div className="flex justify-center"><ListTodo className="h-12 w-12 text-blue-600 stroke-2" /></div>
-                <h2 className="text-2xl font-bold text-black-500">Create your account</h2>
-                <h3 className="text-sm mb-6 text-gray-500 text-wrap">Get started with your task management journey.</h3>
+                <h2 className="text-2xl font-bold text-black-500 text-center">Create your account</h2>
+                <h3 className="text-sm mb-6 text-gray-500 text-center">Get started with your task management journey.</h3>
                 {/* Conditional rendering of error message */}
                 {error && <div className="text-red-500 mb-4">{error}</div>}
                 {/* Input for Username */}
