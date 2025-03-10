@@ -165,3 +165,8 @@ C:\Users\wetma\Documents\GitHub\portfolio-projects\task-manager\backend\TaskMana
 C:\Users\wetma\Documents\GitHub\portfolio-projects\task-manager\backend\TaskManagementApi\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\wetma\Documents\GitHub\portfolio-projects\task-manager\backend\TaskManagementApi\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\wetma\Documents\GitHub\portfolio-projects\task-manager\backend\TaskManagementApi\bin\Debug\net9.0\BCrypt.Net.dll
+C:\Users\wetma\Documents\GitHub\portfolio-projects\task-manager\backend\TaskManagementApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\wetma\Documents\GitHub\portfolio-projects\task-manager\backend\TaskManagementApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\wetma\Documents\GitHub\portfolio-projects\task-manager\backend\TaskManagementApi\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\wetma\Documents\GitHub\portfolio-projects\task-manager\backend\TaskManagementApi\bin\Debug\net9.0\TaskManagementApi.xml
+C:\Users\wetma\Documents\GitHub\portfolio-projects\task-manager\backend\TaskManagementApi\obj\Debug\net9.0\TaskManagementApi.xml

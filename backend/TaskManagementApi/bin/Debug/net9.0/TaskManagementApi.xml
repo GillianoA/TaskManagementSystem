@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TaskManagementApi</name>
+    </assembly>
+    <members>
+        <member name="T:AuthController">
+            <summary>
+            Controller for handling authentication-related operations
+            </summary>
+        </member>
+        <member name="M:AuthController.#ctor(TaskManagementContext,JwtService)">
+            <summary>
+            Initializes a new instance of the AuthController
+            </summary>
+            <param name="context">The database context</param>
+            <param name="jwtService">The JWT service for token generation</param>
+        </member>
+        <member name="M:AuthController.Register(RegisterModel)">
+            <summary>
+            Register a new user
+            </summary>
+            <param name="model">The registration details</param>
+            <returns>
+            200 OK with success message if registration is successful
+            400 Bad Request if email already exists
+            </returns>
+            <response code="200">Returns success message when user is registered</response>
+            <response code="400">If email already exists in the system</response>
+        </member>
+        <member name="M:AuthController.Login(LoginModel)">
+            <summary>
+            User login
+            </summary>
+            <param name="model">The login details</param>
+            <returns>
+            200 OK with JWT token if login is successful
+            401 Unauthorized if invalid credentials
+            </returns>
+        </member>
+        <member name="T:TaskManagementApi.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:TaskManagementApi.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TaskManagementApi.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TaskManagementApi.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
