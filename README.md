@@ -1,8 +1,8 @@
-# Task Management System
+# Task Management System with Docker Containerization
 
-A modern full-stack task management application built with .NET Core, featuring secure authentication and robust database design.
+A modern full-stack task management application built with .NET Core and React, featuring secure authentication, robust database design, and containerized deployment using Docker.
 
-## Current Implementation
+## Current Features and Technologies Used in the Project
 
 ### Authentication System
 - User registration with email and password
@@ -22,7 +22,15 @@ A modern full-stack task management application built with .NET Core, featuring 
 - Categories table for task organization
 - Proper foreign key constraints and data validation
 
-## Tech Stack
+### Docker Implementation
+- Multi-container setup with Docker Compose
+- Separate containers for frontend and backend
+- Development and production configurations
+- Volume mounting for live code editing
+- Environment variable management
+- Nginx reverse proxy for frontend
+
+## Technologies Used
 
 ### Backend (.NET Core)
 - .NET 9.0
@@ -33,17 +41,35 @@ A modern full-stack task management application built with .NET Core, featuring 
 - Swagger/OpenAPI for documentation
 - Microsoft.AspNetCore.OpenApi for spec generation
 
+### Frontend (React)
+- React 19.0.0
+- TypeScript
+- Vite build tool
+- TailwindCSS
+- Axios for API communication
+- React Router DOM v7
+
 ### Database
 - Azure SQL Database
 - Entity Framework Code First approach
 - Data models with proper relationships
 
+### DevOps
+- Docker containerization
+- Docker Compose for multi-container orchestration
+- Nginx reverse proxy
+- Environment variable management
+- Hot reload for development
+
 ## Project Structure
 
 ```
 task-manager/
+├── docker-compose.yml
 ├── frontend/
 │   └── task-manager-frontend/
+│       ├── Dockerfile
+│       ├── nginx.conf
 │       ├── components/
 │       │   └── LandingPage.tsx
 │       └── src/
@@ -51,6 +77,7 @@ task-manager/
 │           └── main.tsx
 ├── backend/
 │   └── TaskManagementApi/
+│       ├── Dockerfile
 │       ├── Controllers/
 │       │   └── AuthController.cs
 │       ├── Models/
@@ -59,7 +86,7 @@ task-manager/
 │       │   ├── Category.cs
 │       │   └── DTOs/
 │       │       └── LoginModel.cs
-│       |       └── RegisterModel.cs
+│       │       └── RegisterModel.cs
 │       ├── Data/
 │       │   └── TaskManagementContext.cs
 │       └── Services/
@@ -69,40 +96,55 @@ task-manager/
 ## Getting Started
 
 ### Prerequisites
-- .NET 9.0 SDK
-- SQL Server or Azure SQL Database
+- Docker and Docker Compose
+- .NET 9.0 SDK (for local development)
+- Node.js and npm (for local development)
 
-### Backend Setup
+### Running with Docker
+
 1. Clone the repository
 ```bash
 git clone https://github.com/GillianoA/TaskManagementSystem
+cd TaskManagementSystem
+```
+
+2. Create a `.env` file in the root directory with your configuration:
+```env
+JWT_SECRET=your_jwt_secret
+JWT_KEY=your_jwt_key
+JWT_ISSUER=your_issuer
+JWT_EXPIRY_MINUTES=60
+JWT_AUDIENCE=your_audience
+CONNECTION_STRING=your_db_connection_string
+```
+
+3. Build and run the containers
+```bash
+docker-compose up --build
+```
+
+4. Access the application:
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:5145
+- Swagger UI: http://localhost:5145/swagger
+
+### Local Development Setup
+
+1. Backend Setup
+```bash
 cd backend/TaskManagementApi
-```
-
-2. Install dependencies
-```bash
 dotnet restore
-```
-
-3. Configure the database connection string in user secrets:
-```bash
 dotnet user-secrets set "ConnectionStrings:DefaultConnection" "your-connection-string"
-```
-
-4. Run migrations
-```bash
 dotnet ef database update
-```
-
-5. Start the application
-```bash
 dotnet run
 ```
 
-6. Access API documentation
-- Navigate to `{baseUrl}/swagger` in development mode
-- Interactive API documentation and testing interface available
-- Full OpenAPI specification at `{baseUrl}/swagger/v1/swagger.json`
+2. Frontend Setup
+```bash
+cd frontend/task-manager-frontend
+npm install
+npm run dev
+```
 
 ## Current API Endpoints
 
@@ -123,10 +165,37 @@ dotnet run
   }
   ```
 
+## Environment Variables
+
+The following environment variables are required:
+
+### Backend
+- `JWT_SECRET`: Secret key for JWT token generation
+- `JWT_KEY`: Key for JWT token signing
+- `JWT_ISSUER`: Token issuer
+- `JWT_EXPIRY_MINUTES`: Token expiration time
+- `JWT_AUDIENCE`: Token audience
+- `CONNECTION_STRING`: Database connection string
+
+## Docker Configuration
+
+The project uses Docker Compose with the following services:
+
+### Backend Container
+- .NET 9.0 runtime
+- Development hot reload enabled
+- Port 5145 exposed
+- Volume mounted for live code editing
+
+### Frontend Container
+- Node.js 18 Alpine
+- Nginx for production serving
+- Port 3000 exposed
+- Volume mounted for live code editing
+
 ## Planned Features
 
 - Task CRUD operations
-- Frontend implementation with React
 - Redis caching
 - Task filtering and search
 - User profile management
@@ -136,20 +205,6 @@ dotnet run
 
 This project is licensed under the Apache License, Version 2.0 - see the [LICENSE](https://github.com/GillianoA/TaskManagementSystem?tab=Apache-2.0-1-ov-file) file for details.
 
-   Copyright 2025 Gilliano Agard
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-
-## 👥 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
