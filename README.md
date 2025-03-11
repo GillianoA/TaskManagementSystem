@@ -1,8 +1,8 @@
-# Task Management System with Docker Containerization
+# Task Management System
 
 A modern full-stack task management application built with .NET Core and React, featuring secure authentication, robust database design, and containerized deployment using Docker.
 
-## Current Features and Technologies Used in the Project
+## Current Features and Technologies
 
 ### Authentication System
 - User registration with email and password
