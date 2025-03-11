@@ -29,6 +29,16 @@ builder.Services.AddDbContext<TaskManagementContext>(options => {
 builder.Services.AddScoped<JwtService>();
 builder.Services.AddControllers();
 
+//Configure CORS
+builder.Services.AddCors(options => {
+    options.AddPolicy("AllowLocalhost3000", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => {
     options.SwaggerDoc("v1", new OpenApiInfo {
@@ -56,5 +66,6 @@ if (app.Environment.IsDevelopment()){
 app.UseRouting();
 app.UseAuthorization();
 app.MapControllers();
+app.UseCors("AllowLocalhost3000"); // Use the CORS policy named "AllowLocalhost3000"
 
 app.Run();

@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./backend/TaskManagementApi
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5145:80"   # Maps container port 80 to host port 5145
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - Jwt__Secret=${JWT_SECRET}
+      - Jwt__Key=${JWT_KEY}
+      - Jwt__Issuer=${JWT_ISSUER}
+      - Jwt__ExpiryMinutes=${JWT_EXPIRY_MINUTES}
+      - Jwt__Audience=${JWT_AUDIENCE}
+      - ConnectionStrings__DefaultConnection=${CONNECTION_STRING}
+    env_file:
+      - .env
+    volumes:
+      - ./backend/TaskManagementApi:/app  # Mount your backend source code for live editing
+
+  frontend:
+    build:
+      context: ./frontend/task-manager-frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"  # Maps container port 3000 to host port 3000
+    volumes:
+      - ./frontend/task-manager-frontend:/app  # Mount your frontend source code for live editing
