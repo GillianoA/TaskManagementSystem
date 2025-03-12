@@ -17,7 +17,7 @@ const TaskList: React.FC = () => {
     useEffect(() => {
         const fetchTasks = async () => {
             try {
-                const response = await axios.get('http://localhost:5145/api/tasks');
+                const response = await axios.get('http://localhost:5145/api/task');
                 setTasks(response.data);
             } catch (error: any) {
                 setError(error.response?.data || "Failed to fetch tasks.");
