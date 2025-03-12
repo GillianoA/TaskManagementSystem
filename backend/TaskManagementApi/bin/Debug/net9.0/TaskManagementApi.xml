@@ -38,6 +38,72 @@
             401 Unauthorized if invalid credentials
             </returns>
         </member>
+        <member name="T:TaskController">
+            <summary>
+            Controller for handling task-related operations
+            </summary>
+        </member>
+        <member name="M:TaskController.#ctor(TaskManagementContext)">
+            <summary>
+            Initializes a new instance of the TaskController
+            </summary>
+            <param name="context">The database context</param>
+        </member>
+        <member name="M:TaskController.GetAllTasks">
+            <summary>
+            Get all tasks
+            </summary>
+            <returns>
+            200 OK with list of tasks if successful
+            </returns>
+            <response code="200">Returns list of tasks</response>
+        </member>
+        <member name="M:TaskController.GetTaskById(System.Int32)">
+            <summary>
+            Get task by id
+            </summary>
+            <param name="id"></param>
+            <returns>
+            200 OK with task if found, 404 Not Found if task not found
+            </returns>
+            <response code="200">Returns the task if found</response>
+            <response code="404">If task not found</response>
+        </member>
+        <member name="M:TaskController.CreateTask(CreateTaskDTO)">
+            <summary>
+            Create a new task
+            </summary>
+            <param name="dto"></param>
+            <returns>
+            201 Created if task is created successfully, 400 Bad Request if task data is invalid
+            </returns>
+            <response code="201">Returns the newly created task</response>
+            <response code="400">If the task data is invalid</response>
+        </member>
+        <member name="M:TaskController.UpdateTask(System.Int32,TaskItem)">
+            <summary>
+            Update a task
+            </summary>
+            <param name="id"></param>
+            <param name="updatedTask"></param>
+            <returns>
+            204 No Content if task is updated successfully, 400 Bad Request if task data is invalid, 404 Not Found if task not found
+            </returns>
+            <response code="204">If task is updated successfully</response>
+            <response code="400">If the task data is invalid</response>
+            <response code="404">If task not found</response>
+        </member>
+        <member name="M:TaskController.DeleteTask(System.Int32)">
+            <summary>
+            Delete a task
+            </summary>
+            <param name="id"></param>
+            <returns>
+            204 No Content if task is deleted successfully, 404 Not Found if task not found
+            </returns>
+            <response code="204">If task is deleted successfully</response>
+            <response code="404">If task not found</response>
+        </member>
         <member name="T:TaskManagementApi.Migrations.InitialCreate">
             <inheritdoc />
         </member>
@@ -48,6 +114,42 @@
             <inheritdoc />
         </member>
         <member name="M:TaskManagementApi.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:TaskManagementApi.Migrations.RenameTaskToTaskItem">
+            <inheritdoc />
+        </member>
+        <member name="M:TaskManagementApi.Migrations.RenameTaskToTaskItem.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TaskManagementApi.Migrations.RenameTaskToTaskItem.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TaskManagementApi.Migrations.RenameTaskToTaskItem.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:TaskManagementApi.Migrations.EnableCascadeDelete">
+            <inheritdoc />
+        </member>
+        <member name="M:TaskManagementApi.Migrations.EnableCascadeDelete.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TaskManagementApi.Migrations.EnableCascadeDelete.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TaskManagementApi.Migrations.EnableCascadeDelete.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:TaskManagementApi.Migrations.ChangeStatusType">
+            <inheritdoc />
+        </member>
+        <member name="M:TaskManagementApi.Migrations.ChangeStatusType.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TaskManagementApi.Migrations.ChangeStatusType.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:TaskManagementApi.Migrations.ChangeStatusType.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
     </members>

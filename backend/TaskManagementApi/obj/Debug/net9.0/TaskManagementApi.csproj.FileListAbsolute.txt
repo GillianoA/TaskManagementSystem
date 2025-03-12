@@ -330,3 +330,12 @@ C:/Users/wetma/Documents/GitHub/portfolio-projects/task-manager/backend/TaskMana
 /app/obj/Debug/net9.0/TaskManagementApi.pdb
 /app/obj/Debug/net9.0/TaskManagementApi.genruntimeconfig.cache
 /app/obj/Debug/net9.0/ref/TaskManagementApi.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Caching.Memory.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
+/app/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
