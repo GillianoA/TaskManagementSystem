@@ -15,8 +15,6 @@ services:
       - ConnectionStrings__DefaultConnection=${CONNECTION_STRING}
     env_file:
       - .env
-    volumes:
-      - ./backend/TaskManagementApi:/app # Mount your backend source code for live editing
 
   frontend:
     build:
@@ -24,5 +22,3 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000" # Maps container port 3000 to host port 3000
-    volumes:
-      - ./frontend/task-manager-frontend:/app # Mount your frontend source code for live editing
