@@ -26,14 +26,13 @@ const TaskList: React.FC = () => {
     const sortedTasks = [...filteredTasks].sort((a, b) => {
         let comparison = 0;
         if (sortField === 'dueDate') {
-          // Convert dueDate strings to timestamps for comparison.
-          comparison = new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
+            // Convert dueDate strings to timestamps for comparison.
+            comparison = new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
         } else if (sortField === 'priority') {
-          comparison = a.priority - b.priority;
+            comparison = a.priority - b.priority;
         }
         return sortOrder === 'asc' ? comparison : -comparison;
-      });
-      
+    });
 
     useEffect(() => {
         const fetchTasks = async () => {
@@ -87,15 +86,15 @@ const TaskList: React.FC = () => {
             <div className="grid grid-cols-1 gap-6">
                 {sortedTasks.map(task => (
                     <div key={task.id} className="bg-white p-6 rounded shadow">
-                    <h2 className="text-2xl font-semibold text-blue-600">{task.title}</h2>
-                    <p className="mt-2">{task.description}</p>
-                    <p className="mt-2 text-sm text-gray-600">Status: {task.status}</p>
-                    <p className="mt-2 text-sm text-gray-600">
-                      Due: {new Date(task.dueDate).toLocaleDateString()}
-                    </p>
-                    <p className="mt-2 text-sm text-gray-600">Priority: {task.priority}</p>
-                    <Link to={`/tasks/${task.id}`} className="text-blue-600 hover:underline">View Details</Link>
-                  </div>
+                        <h2 className="text-2xl font-semibold text-blue-600">{task.title}</h2>
+                        <p className="mt-2">{task.description}</p>
+                        <p className="mt-2 text-sm text-gray-600">Status: {task.status}</p>
+                        <p className="mt-2 text-sm text-gray-600">
+                            Due: {new Date(task.dueDate).toLocaleDateString()}
+                        </p>
+                        <p className="mt-2 text-sm text-gray-600">Priority: {task.priority}</p>
+                        <Link to={`/tasks/${task.id}`} className="text-blue-600 hover:underline">View Details</Link>
+                    </div>
                 ))}
             </div>
             <Link to="/tasks/create" className="text-blue-600 hover:underline">Create Task</Link>
