@@ -69,7 +69,7 @@
             <response code="200">Returns the task if found</response>
             <response code="404">If task not found</response>
         </member>
-        <member name="M:TaskController.CreateTask(CreateTaskDTO)">
+        <member name="M:TaskController.CreateTask(TaskDTO)">
             <summary>
             Create a new task
             </summary>
@@ -80,7 +80,7 @@
             <response code="201">Returns the newly created task</response>
             <response code="400">If the task data is invalid</response>
         </member>
-        <member name="M:TaskController.UpdateTask(System.Int32,TaskItem)">
+        <member name="M:TaskController.UpdateTask(System.Int32,TaskDTO)">
             <summary>
             Update a task
             </summary>

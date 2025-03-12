@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-
 /// <summary>
 /// Controller for handling task-related operations
 /// </summary>
@@ -93,19 +92,22 @@ public class TaskController : ControllerBase{
     /// <response code="404">If task not found</response>
     //Update a task
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateTask(int id, [FromBody] TaskItem updatedTask){
-        if(id != updatedTask.Id){
-            return BadRequest("Invalid task ID.");
+    public async Task<IActionResult> UpdateTask(int id, [FromBody] TaskDTO updatedTask){
+        if(_context.TaskItems.Find(id) == null){
+            return NotFound("Task not found.");
         }
-        _context.Entry(updatedTask).State = EntityState.Modified;
-        try {            await _context.SaveChangesAsync();
-        } catch(DbUpdateConcurrencyException){
-            if(!await _context.TaskItems.AnyAsync(t => t.Id == id)){
-                return NotFound("Task not found.");
-            } else{
-                throw;
-            }
-        }
+        var task = _context.TaskItems.Find(id);
+
+        task.Title = updatedTask.Title;
+        task.Description = updatedTask.Description;
+        task.DueDate = updatedTask.DueDate;
+        task.Status = updatedTask.Status;
+        task.Priority = updatedTask.Priority;
+        task.UserId = updatedTask.UserId;
+        task.CategoryId = updatedTask.CategoryId;
+        
+        _context.TaskItems.Update(task);
+        await _context.SaveChangesAsync();
         return NoContent();
     }
 

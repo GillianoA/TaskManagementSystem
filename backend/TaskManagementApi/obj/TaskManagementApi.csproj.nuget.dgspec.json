@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/app/TaskManagementApi.csproj": {}
+    "C:\\Users\\wetma\\Documents\\GitHub\\portfolio-projects\\task-manager\\backend\\TaskManagementApi\\TaskManagementApi.csproj": {}
   },
   "projects": {
-    "/app/TaskManagementApi.csproj": {
+    "C:\\Users\\wetma\\Documents\\GitHub\\portfolio-projects\\task-manager\\backend\\TaskManagementApi\\TaskManagementApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/app/TaskManagementApi.csproj",
+        "projectUniqueName": "C:\\Users\\wetma\\Documents\\GitHub\\portfolio-projects\\task-manager\\backend\\TaskManagementApi\\TaskManagementApi.csproj",
         "projectName": "TaskManagementApi",
-        "projectPath": "/app/TaskManagementApi.csproj",
-        "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/app/obj/",
+        "projectPath": "C:\\Users\\wetma\\Documents\\GitHub\\portfolio-projects\\task-manager\\backend\\TaskManagementApi\\TaskManagementApi.csproj",
+        "packagesPath": "C:\\Users\\wetma\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wetma\\Documents\\GitHub\\portfolio-projects\\task-manager\\backend\\TaskManagementApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\wetma\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -96,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

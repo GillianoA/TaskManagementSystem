@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 interface TaskItem {
     id: number;
@@ -42,6 +43,7 @@ const TaskList: React.FC = () => {
                       Due: {new Date(task.dueDate).toLocaleDateString()}
                     </p>
                     <p className="mt-2 text-sm text-gray-600">Priority: {task.priority}</p>
+                    <Link to={`/tasks/${task.id}`} className="text-blue-600 hover:underline">View Details</Link>
                   </div>
                 ))}
             </div>

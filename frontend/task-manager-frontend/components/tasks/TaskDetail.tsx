@@ -6,7 +6,7 @@ interface TaskItem {
     id: number;
     title: string;
     description: string;
-    status: boolean;
+    status: string;
     dueDate: string;
     priority: number;
     userId: number;
@@ -42,7 +42,7 @@ const TaskDetail: React.FC = () => {
             <div className="bg-white p-6 rounded shadow mb-4">
             <h2 className="text-2xl font-semibold text-blue-600">{task.title}</h2>
             <p className="mt-2">{task.description}</p>
-            <p className="mt-2 text-sm text-gray-600">Status: {task.status ? 'Completed' : 'Pending'}</p>
+            <p className="mt-2 text-sm text-gray-600">Status: {task.status}</p>
             <p className="mt-2 text-sm text-gray-600">
                 Due: {new Date(task.dueDate).toLocaleDateString()}
             </p>

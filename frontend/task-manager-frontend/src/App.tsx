@@ -4,6 +4,8 @@ import Register from '../components/auth/Register';
 import Login from '../components/auth/Login';
 import Dashboard from '../components/dashboard/Dashboard';
 import TaskList from '../components/tasks/TaskList';
+import TaskDetail from '../components/tasks/TaskDetail';
+import EditTask from '../components/tasks/EditTask';
 import './App.css';
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/tasks" element={<TaskList />} />
+          <Route path="/tasks/:id" element={<TaskDetail />} />
+          <Route path="/tasks/:id/edit" element={<EditTask />} />
         </Routes>
       </Router>
     </div>
