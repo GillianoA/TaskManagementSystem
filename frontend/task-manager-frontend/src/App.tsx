@@ -3,6 +3,7 @@ import LandingPage from '../components/LandingPage';
 import Register from '../components/auth/Register';
 import Login from '../components/auth/Login';
 import Dashboard from '../components/dashboard/Dashboard';
+import TaskList from '../components/tasks/TaskList';
 import './App.css';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/tasks" element={<TaskList />} />
         </Routes>
       </Router>
     </div>

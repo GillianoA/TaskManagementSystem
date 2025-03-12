@@ -1,5 +1,5 @@
 # Use the Node.js image for development
-FROM node:18-alpine
+FROM node:18-slim
 WORKDIR /app
 
 # Copy package files and install dependencies
@@ -13,4 +13,4 @@ COPY . .
 EXPOSE 3000
 
 # Run the development server 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "dev", "--", "--host"]
