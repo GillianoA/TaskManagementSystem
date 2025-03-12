@@ -84,6 +84,7 @@ const TaskList: React.FC = () => {
                 </select>
             </div>
             <div className="grid grid-cols-1 gap-6">
+                {/* Display tasks */}
                 {sortedTasks.map(task => (
                     <div key={task.id} className="bg-white p-6 rounded shadow">
                         <h2 className="text-2xl font-semibold text-blue-600">{task.title}</h2>
