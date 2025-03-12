@@ -63,7 +63,7 @@ public class TaskController : ControllerBase{
     /// <response code="400">If the task data is invalid</response>
     //Create a new task
     [HttpPost]
-    public async Task<IActionResult> CreateTask([FromBody] CreateTaskDTO dto){
+    public async Task<IActionResult> CreateTask([FromBody] TaskDTO dto){
 
         var newTask = new TaskItem{
             Title = dto.Title,

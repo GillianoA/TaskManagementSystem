@@ -10,6 +10,13 @@ A modern full-stack task management application built with .NET Core and React, 
 - Password hashing using BCrypt
 - Input validation and error handling
 
+### Task Management Features
+- View list of tasks with details
+- Task status tracking
+- Due date management
+- Priority levels
+- Task filtering capabilities
+
 ### API Documentation
 - OpenAPI specification generation
 - Interactive Swagger UI documentation
@@ -48,6 +55,7 @@ A modern full-stack task management application built with .NET Core and React, 
 - TailwindCSS
 - Axios for API communication
 - React Router DOM v7
+- HMR (Hot Module Replacement) support
 
 ### Database
 - Azure SQL Database
@@ -57,7 +65,8 @@ A modern full-stack task management application built with .NET Core and React, 
 ### DevOps
 - Docker containerization
 - Docker Compose for multi-container orchestration
-- Nginx reverse proxy
+- Docker networking with custom bridge network
+- Volume mounts for development
 - Environment variable management
 - Hot reload for development
 
@@ -68,16 +77,20 @@ task-manager/
 ├── docker-compose.yml
 ├── frontend/
 │   └── task-manager-frontend/
-│       ├── Dockerfile
-│       ├── nginx.conf
+│       ├── Dockerfile.dev
+│       ├── vite.config.ts
 │       ├── components/
-│       │   └── LandingPage.tsx
+│       │   ├── LandingPage.tsx
+│       │   ├── dashboard/
+│       │   │   └── Dashboard.tsx
+│       │   └── tasks/
+│       │       └── TaskList.tsx
 │       └── src/
 │           ├── App.tsx
 │           └── main.tsx
 ├── backend/
 │   └── TaskManagementApi/
-│       ├── Dockerfile
+│       ├── Dockerfile.dev
 │       ├── Controllers/
 │       │   └── AuthController.cs
 │       ├── Models/
@@ -96,7 +109,7 @@ task-manager/
 ## Getting Started
 
 ### Prerequisites
-- Docker and Docker Compose
+- Docker Desktop
 - .NET 9.0 SDK (for local development)
 - Node.js and npm (for local development)
 
@@ -165,9 +178,13 @@ npm run dev
   }
   ```
 
-## Environment Variables
+### Tasks
+- GET `/api/task` - Get all tasks
+- POST `/api/task` - Create new task
+- PUT `/api/task/{id}` - Update task
+- DELETE `/api/task/{id}` - Delete task
 
-The following environment variables are required:
+## Environment Variables
 
 ### Backend
 - `JWT_SECRET`: Secret key for JWT token generation
@@ -176,6 +193,9 @@ The following environment variables are required:
 - `JWT_EXPIRY_MINUTES`: Token expiration time
 - `JWT_AUDIENCE`: Token audience
 - `CONNECTION_STRING`: Database connection string
+
+### Frontend
+- `VITE_API_URL`: Backend API URL
 
 ## Docker Configuration
 
@@ -186,12 +206,14 @@ The project uses Docker Compose with the following services:
 - Development hot reload enabled
 - Port 5145 exposed
 - Volume mounted for live code editing
+- Custom network for service communication
 
 ### Frontend Container
-- Node.js 18 Alpine
-- Nginx for production serving
+- Node.js 18 Slim
+- Vite dev server with HMR
 - Port 3000 exposed
 - Volume mounted for live code editing
+- Custom network for service communication
 
 ## Planned Features
 
@@ -200,6 +222,16 @@ The project uses Docker Compose with the following services:
 - Task filtering and search
 - User profile management
 - Task categories management
+- Task sharing between users
+- Email notifications
+
+## Troubleshooting
+
+### Docker Issues
+- Use Docker Desktop to monitor container status
+- Check container logs through Docker Desktop UI
+- Verify port mappings and network connectivity
+- Ensure all required environment variables are set
 
 ## License
 
