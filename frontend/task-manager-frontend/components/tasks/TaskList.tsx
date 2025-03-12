@@ -47,6 +47,7 @@ const TaskList: React.FC = () => {
                   </div>
                 ))}
             </div>
+            <Link to="/tasks/create" className="text-blue-600 hover:underline">Create Task</Link>
         </div>
     );
 }

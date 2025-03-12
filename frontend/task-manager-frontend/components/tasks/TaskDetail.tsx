@@ -32,6 +32,18 @@ const TaskDetail: React.FC = () => {
         fetchTask();
     }, [id]);
 
+    //handle delete
+    const handleDelete = async () => {
+        if(window.confirm('Are you sure you want to delete this task?')){
+            try{
+                await axios.delete(`http://localhost:5145/api/task/${id}`);
+                navigate('/tasks');
+            } catch (error: any){
+                setError(error.response?.data || "Failed to delete task.");
+            }
+        }          
+    }
+
     if (error) return <p className="text-red-500">{error}</p>;
     // While the task data is being fetched, show a loading message
     if (!task) return <p>Loading...</p>;
@@ -56,6 +68,7 @@ const TaskDetail: React.FC = () => {
             >
                 Edit Task
             </button>
+            <button onClick={handleDelete} className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Delete Task</button>            
             <Link to="/tasks" className="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">
                 Back to Task List
             </Link>

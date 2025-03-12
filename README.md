@@ -12,6 +12,7 @@ A modern full-stack task management application built with .NET Core and React, 
 
 ### Task Management Features
 - View list of tasks with details
+- Create, edit, and delete tasks
 - Task status tracking
 - Due date management
 - Priority levels
@@ -55,6 +56,7 @@ A modern full-stack task management application built with .NET Core and React, 
 - TailwindCSS
 - Axios for API communication
 - React Router DOM v7
+- Lucide React for icons
 - HMR (Hot Module Replacement) support
 
 ### Database
