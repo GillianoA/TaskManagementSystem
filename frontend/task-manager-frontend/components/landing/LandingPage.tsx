@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import NavBar from "./sections/NavBar";
 
 const LandingPage: React.FC = () => {
     const navigate = useNavigate();
@@ -8,7 +9,9 @@ const LandingPage: React.FC = () => {
     };
 
     return(
-        <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">
+        <div>
+            <NavBar />
+        <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">           
             <header className="text-center p-8">
                 <h1 className="text-4xl font-bold mb-4">
                     Welcome to Task Management System
@@ -29,6 +32,7 @@ const LandingPage: React.FC = () => {
             <li>Secure authentication and user management</li>
             </ul>
         </section>
+    </div>
     </div>
     );
 };
