@@ -6,6 +6,9 @@ const HeroSection: React.FC = () => {
     const handleTrial = () => {
         navigate('/register');
     };
+    const handleVideo = () => {
+        navigate('/comingsoon');
+    };
 
     return(
         <section className="flex flex-col md:flex-row items-center justify-center py-16 px-16 bg-white space-x-8">
@@ -21,7 +24,7 @@ const HeroSection: React.FC = () => {
                     <button onClick={handleTrial} className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700">
                         Start Free Trial
                     </button>
-                    <button className="bg-white text-grey-800 px-6 py-3 rounded hover:bg-blue-700 hover:text-white hover:border-white border border-gray-300">
+                    <button onClick={handleVideo} className="bg-white text-grey-800 px-6 py-3 rounded hover:bg-blue-700 hover:text-white hover:border-white border border-gray-300">
                         View Demo
                     </button>
                 </div>
