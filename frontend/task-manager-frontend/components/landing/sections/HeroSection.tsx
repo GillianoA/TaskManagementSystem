@@ -31,7 +31,7 @@ const HeroSection: React.FC = () => {
             </div>
             {/* Right Content */}
             <div className="md:w-1/2 flex justify-center relative">
-                <div className="absolute -bottom-20 -right-10 w-full h-full bg-blue-100 py-12 px-4 rounded-2xl shadow-md "></div> 
+                <div className="absolute -bottom-20 -right-10 w-full h-full bg-blue-200 py-12 px-4 rounded-2xl shadow-md "></div> 
                 <div className="absolute -bottom-10 -right-5 w-full h-full bg-gray-400 py-12 px-4 rounded-2xl shadow-md "></div>
                 <div className="relative">            
                     <img src="/Dashboard.png" alt="TaskFlow Screenshot" className="max-w-full h-auto rounded-2xl shadow-lg" />

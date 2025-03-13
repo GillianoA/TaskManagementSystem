@@ -7,7 +7,7 @@ const ComingSoon: React.FC = () => {
         <div className="min-h-screen bg-blue-50 flex flex-col items-center justify-center px-4">
             <div className="flex flex-col justify-center items-center mb-8 bg-white p-8 rounded-lg shadow-md w-full max-w-md">
                 <div className="flex items-center justify-center md:justify-start space-x-2 py-4 md:py-0 mb-4">
-                    <ClipboardCheck className="h-12 w-12 text-blue-600 stroke-2" />
+                    <ClipboardCheck className="h-12 w-12 text-blue-600 stroke-2" />                    
                     <div className="text-2xl font-bold text-black-600">TaskFlow</div>
                 </div>
                 <h1 className="text-4xl font-bold text-blue-600 mb-4 text-center">Coming Soon</h1>
