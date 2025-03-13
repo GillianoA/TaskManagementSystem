@@ -10,7 +10,7 @@ const Features: React.FC = () => {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Feature 1 */}
-                <div className="p-6 bg-gray-50 rounded-xl shadow">
+                <div className="p-6 bg-white rounded-xl shadow">
                     <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-xl bg-blue-100">
                         <ListTodo className="h-8 w-8 text-blue-600 stroke-2" />
                     </div>
@@ -20,7 +20,7 @@ const Features: React.FC = () => {
                     </p>
                 </div>
                 {/* Feature 2 */}
-                <div className="p-6 bg-gray-50 rounded-xl shadow">
+                <div className="p-6 bg-white rounded-xl shadow">
                     <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-xl bg-blue-100">
                         <ChartBarStacked className="h-8 w-8 text-blue-600 stroke-2" />
                     </div>
@@ -30,7 +30,7 @@ const Features: React.FC = () => {
                     </p>
                 </div>
                 {/* Feature 3 */}
-                <div className="p-6 bg-gray-50 rounded-xl shadow">
+                <div className="p-6 bg-white rounded-xl shadow">
                     <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-xl bg-blue-100">
                         <Users className="h-8 w-8 text-blue-600 stroke-2" />
                     </div>
