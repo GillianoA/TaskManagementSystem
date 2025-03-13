@@ -15,7 +15,7 @@ const NavBar: React.FC = () => {
     };
 
     return(
-        <nav className="bg-white p-4 px-8 shadow">
+        <nav className="bg-white p-4 px-16 shadow border-b-3 border-gray-200">
             {/* Mobile Menu Button */}
             <div className="md:hidden flex justify-end">
                 <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-600 hover:text-blue-600">
