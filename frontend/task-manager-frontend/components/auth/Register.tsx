@@ -78,7 +78,7 @@ const Register: React.FC = () => {
                 <h2 className="text-2xl font-bold text-black-500 text-center">Create your account</h2>
                 <h3 className="text-sm mb-6 text-gray-500 text-center">Get started with your task management journey.</h3>
                 {/* Conditional rendering of error message */}
-                {error && <div className="text-red-500 -mt-4 mb-6"><CircleAlert className="h-4 w-4 inline-block text-red-500 stroke-2" /> {error}</div>}
+                {error && <div className="text-red-500 -mt-4 mb-6 text-center"><CircleAlert className="h-4 w-4 inline-block text-red-500 stroke-2" /> {error}</div>}
                 {/* Input for Username */}
                 <label htmlFor="username" className="block text-left text-sm font-medium text-gray-700 mb-1">
                     Username
@@ -127,7 +127,7 @@ const Register: React.FC = () => {
                 <input
                     type="password"
                     placeholder="••••••••"
-                    className="border border-gray-300 p-2 mb-4 w-full rounded-lg"
+                    className="border border-gray-300 p-2 mb-6 w-full rounded-lg"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     onBlur={PasswordOnBlur}
@@ -135,7 +135,7 @@ const Register: React.FC = () => {
                     required
                 />
                 {/* Display error message if passwords do not match */}
-                {passwordMatch === false && <div className="text-red-500 -mt-3 mb-4 text-sm"> <CircleAlert className="h-4 w-4 inline-block text-red-500 stroke-2" /> Passwords do not match.</div>}
+                {passwordMatch === false && <div className="text-red-500 -mt-5 mb-6 text-sm"> <CircleAlert className="h-4 w-4 inline-block text-red-500 stroke-2" /> Passwords do not match.</div>}
                 {/* Submit button styled with blue background */}
                 <button type="submit" className="bg-blue-600 text-white p-3 w-full rounded-lg hover:bg-blue-700" disabled={loading}>
                     {loading ? 'Creating...' : 'Create Account'}

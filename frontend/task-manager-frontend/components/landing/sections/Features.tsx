@@ -3,7 +3,7 @@ import { ListTodo, ChartBarStacked, Users } from 'lucide-react';
 
 const Features: React.FC = () => {
     return(
-        <section id="features" className="px-16 py-18 bg-blue-50">
+        <section id="features" className="px-10 md:px-25 lg:px-45 py-18 bg-blue-50">
             <h2 className="text-3xl grey-800 font-bold text-center mb-4">Everything You Need to Stay Organized</h2>
             <p className="text-lg text-gray-600 text-center mb-12">
                 Powerful features to help you and your team manage tasks more effectively.

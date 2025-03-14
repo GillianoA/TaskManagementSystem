@@ -3,7 +3,7 @@ import { ListTodo, ChartBarStacked, Users } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
     return(
-        <section id="features" className="px-16 py-18 bg-blue-50">
+        <section id="features" className="px-10 md:px-25 lg:px-45 py-18 bg-blue-50">
             <h2 className="text-3xl grey-800 font-bold text-center mb-4">Loved by Teams Worldwide</h2>
             <p className="text-lg text-gray-600 text-center mb-12">
                 See what our customers have to say about TaskFlow.

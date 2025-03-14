@@ -3,7 +3,7 @@ import { UserPlus, HeartHandshake, LayoutList, ChartLine } from 'lucide-react';
 
 const HowItWorks: React.FC = () => {
     return(
-        <section id="how-it-works" className="px-16 py-18 bg-white">
+        <section id="how-it-works" className="px-10 md:px-25 lg:px-45 py-18 bg-white">
             <h2 className="text-3xl grey-800 font-bold text-center mb-4">How TaskFlow Works</h2>
             <p className="text-lg text-gray-600 text-center mb-12">
                 Get started in minutes with our Simple WorkFlow.

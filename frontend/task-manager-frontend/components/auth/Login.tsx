@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import {Link, useNavigate} from 'react-router-dom';
-import { ListTodo } from 'lucide-react';
+import { ClipboardCheck, CircleAlert} from 'lucide-react';
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -30,13 +30,13 @@ const Login: React.FC = () => {
         <div className="flex flex-col items-center justify-center min-h-screen bg-blue-50">
             <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
                 <div className="flex justify-center">
-                    <ListTodo className="h-12 w-12 text-blue-600 stroke-2" />
+                    <ClipboardCheck className="h-12 w-12 text-blue-600 stroke-2" />                    
                 </div>
                 <h2 className="text-2xl font-bold text-black-500 text-center">TaskFlow</h2>
                 <h3 className="text-sm mb-6 text-gray-500 text-center">
                     Welcome back! Please login to continue.
                 </h3>
-                {error && <div className="text-red-500 mb-4">{error}</div>}
+                {error && <div className="text-red-500 -mt-4 mb-6 text-center"><CircleAlert className="h-4 w-4 inline-block text-red-500 stroke-2" /> {error}</div>}
                 <label htmlFor="email" className="block text-left text-sm font-medium text-gray-700 mb-1">
                     Email
                 </label>

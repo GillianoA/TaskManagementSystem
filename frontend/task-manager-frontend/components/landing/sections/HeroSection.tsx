@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => {
     };
 
     return(
-        <section className="flex flex-col md:flex-row items-center justify-center py-16 px-16 bg-white space-x-8">
+        <section className="flex flex-col md:flex-row items-center justify-center pt-26 md:pt-46 pb-16 px-10 md:px-25 lg:px-45 bg-white space-x-8">
             {/* Left Content */}
             <div className="md:w-1/2 mb-8 md:mb-0">
                 <h1 className="text-4xl md:text-5xl font-bold text-black-600 mb-4">
