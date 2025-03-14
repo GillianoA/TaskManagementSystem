@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BCrypt.Net;
-
+using System.Collections.Generic;
 
 /// <summary>
 /// Controller for handling authentication-related operations
@@ -42,7 +42,8 @@ public class AuthController : ControllerBase{
         var user = new User{
             Username = model.Username,
             Email = model.Email,
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.Password)
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.Password),
+            TaskItems = new List<TaskItem>()
         };
 
         _context.Users.Add(user);
@@ -69,5 +70,18 @@ public class AuthController : ControllerBase{
 
         var token = _jwtService.GenerateToken(user);
         return Ok(new { Token = token });
+    }
+    /// <summary>
+    /// Check if email is available
+    /// </summary>
+    /// <param name="email"></param>
+    /// <returns>
+    /// 200 OK with boolean value indicating whether the email is available or not.
+    /// </returns>
+    //Endpoint to check email availability
+    [HttpGet("check-email")]
+    public async Task<IActionResult> CheckEmailAvailability([FromQuery] string email){
+        var isAvailable = !await _context.Users.AnyAsync(u => u.Email == email);
+        return Ok(new { IsAvailable = isAvailable });
     }
 }
