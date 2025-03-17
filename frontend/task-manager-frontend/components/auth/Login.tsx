@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../../src/apiService';
 import {Link, useNavigate} from 'react-router-dom';
 import { ClipboardCheck, CircleAlert} from 'lucide-react';
 
@@ -17,7 +17,7 @@ const Login: React.FC = () => {
         setLoading(true);
 
         try {
-            const response = await axios.post('http://localhost:5145/api/auth/login', {
+            const response = await api.post('/auth/login', {
                 email,
                 password
             });

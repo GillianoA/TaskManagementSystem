@@ -1,4 +1,5 @@
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,6 +27,7 @@ public class TaskController : ControllerBase{
     /// </returns>
     /// <response code="200">Returns list of tasks</response>
     //Get all tasks endpoint
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> GetAllTasks(){
         var taskItems = await _context.TaskItems.ToListAsync();
@@ -42,6 +44,7 @@ public class TaskController : ControllerBase{
     /// <response code="200">Returns the task if found</response>
     /// <response code="404">If task not found</response>
     //Get task by id
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<IActionResult> GetTaskById(int id){
         var task = await _context.TaskItems.FindAsync(id);
@@ -61,6 +64,7 @@ public class TaskController : ControllerBase{
     /// <response code="201">Returns the newly created task</response>
     /// <response code="400">If the task data is invalid</response>
     //Create a new task
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> CreateTask([FromBody] TaskDTO dto){
 
@@ -91,6 +95,7 @@ public class TaskController : ControllerBase{
     /// <response code="400">If the task data is invalid</response>
     /// <response code="404">If task not found</response>
     //Update a task
+    [Authorize]
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateTask(int id, [FromBody] TaskDTO updatedTask){
         if(_context.TaskItems.Find(id) == null){
@@ -121,6 +126,7 @@ public class TaskController : ControllerBase{
     /// <response code="204">If task is deleted successfully</response>
     /// <response code="404">If task not found</response>
     //Delete a task
+    [Authorize]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteTask(int id){
         var task = await _context.TaskItems.FindAsync(id);

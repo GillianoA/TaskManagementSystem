@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,7 @@ public class UserController : ControllerBase{
     }
 
     //get user by ID
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<IActionResult> GetUserById(int id){
         var user = await _context.Users.FindAsync(id);
@@ -20,6 +22,7 @@ public class UserController : ControllerBase{
     }
 
     //Update user by ID
+    [Authorize]
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateUser(int id, [FromBody] User user){
         if(_context.Users.Find(id) == null){

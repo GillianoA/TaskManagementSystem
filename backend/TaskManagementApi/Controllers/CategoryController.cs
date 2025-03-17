@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,7 @@ public class CategoryController : ControllerBase{
     }
 
     //Get all categories
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> GetAllCategories(){
         var categories = await _context.Categories.ToListAsync();
@@ -17,6 +19,7 @@ public class CategoryController : ControllerBase{
     }
 
     //Get category by id
+    [Authorize]
     [HttpGet("{id}")]
     public async Task<IActionResult> GetCategoryById(int id){
         var category = await _context.Categories.FindAsync(id);
@@ -27,6 +30,7 @@ public class CategoryController : ControllerBase{
     }
 
     //Create a new category
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> CreateCategory([FromBody] Category category){
         _context.Categories.Add(category);
@@ -35,6 +39,7 @@ public class CategoryController : ControllerBase{
     }
 
     //Update category by id
+    [Authorize]
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateCategory(int id, [FromBody] Category category){
         if(_context.Categories.Find(id) == null){
@@ -46,6 +51,7 @@ public class CategoryController : ControllerBase{
     }
     
     //Delete category by id
+    [Authorize]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteCategory(int id){
         var category = await _context.Categories.FindAsync(id);
