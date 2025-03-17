@@ -8,6 +8,7 @@ import TaskDetail from '../components/tasks/TaskDetail';
 import EditTask from '../components/tasks/EditTask';
 import CreateTask from '../components/tasks/CreateTask';
 import ComingSoon from '../components/comingsoon/ComingSoon';
+import ProtectedRoute from '../components/ProtectedRoute';
 import './App.css';
 
 function App() {
@@ -15,14 +16,16 @@ function App() {
     <div>
       <Router>
         <Routes>
+          /* Public Routes */
           <Route path="/" element={<LandingPage />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/tasks" element={<TaskList />} />
-          <Route path="/tasks/:id" element={<TaskDetail />} />
-          <Route path="/tasks/:id/edit" element={<EditTask />} />
-          <Route path="/tasks/create" element={<CreateTask />} />
+          /* Protected Routes */
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/tasks" element={<ProtectedRoute><TaskList /></ProtectedRoute>} />
+          <Route path="/tasks/:id" element={<ProtectedRoute><TaskDetail /></ProtectedRoute>} />
+          <Route path="/tasks/:id/edit" element={<ProtectedRoute><EditTask /></ProtectedRoute>} />
+          <Route path="/tasks/create" element={<ProtectedRoute><CreateTask /></ProtectedRoute>} />
           <Route path="/comingsoon" element={<ComingSoon />} />
         </Routes>
       </Router>
