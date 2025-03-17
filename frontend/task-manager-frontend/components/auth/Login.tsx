@@ -6,6 +6,7 @@ import { ClipboardCheck, CircleAlert} from 'lucide-react';
 const Login: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
     const navigate = useNavigate();
@@ -13,6 +14,7 @@ const Login: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
+        setLoading(true);
 
         try {
             const response = await axios.post('http://localhost:5145/api/auth/login', {
@@ -23,6 +25,8 @@ const Login: React.FC = () => {
             navigate('/dashboard');
         } catch(Error: any){
             setError(Error.response?.data || 'Invalid credentials. Please try again.');
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -47,6 +51,7 @@ const Login: React.FC = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    disabled={loading}
                 />
                 <label htmlFor="password" className="block text-left text-sm font-medium text-gray-700 mb-1">
                     Password
@@ -58,9 +63,10 @@ const Login: React.FC = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    disabled={loading}
                 />
-                <button type="submit" className="bg-blue-600 text-white p-3 w-full rounded-lg hover:bg-blue-700">
-                    Sign In
+                <button type="submit" className="bg-blue-600 text-white p-3 w-full rounded-lg hover:bg-blue-700" disabled={loading}>
+                    {loading ? 'Signing in...' : 'Sign In'}                    
                 </button>
                 <p className="mt-4 text-center">
                     Don't have an account?{' '}
