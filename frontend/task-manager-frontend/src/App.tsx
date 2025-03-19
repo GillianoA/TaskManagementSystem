@@ -3,6 +3,7 @@ import LandingPage from '../components/landing/LandingPage';
 import Register from '../components/auth/Register';
 import Login from '../components/auth/Login';
 import Dashboard from '../components/dashboard/Dashboard';
+import DashboardLayout from '../components/dashboard/DashboardLayout';
 import TaskList from '../components/tasks/TaskList';
 import TaskDetail from '../components/tasks/TaskDetail';
 import EditTask from '../components/tasks/EditTask';
@@ -21,7 +22,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           /* Protected Routes */
-          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/dashboard" element={<ProtectedRoute><DashboardLayout><Dashboard /></DashboardLayout></ProtectedRoute>} />
           <Route path="/tasks" element={<ProtectedRoute><TaskList /></ProtectedRoute>} />
           <Route path="/tasks/:id" element={<ProtectedRoute><TaskDetail /></ProtectedRoute>} />
           <Route path="/tasks/:id/edit" element={<ProtectedRoute><EditTask /></ProtectedRoute>} />
