@@ -25,14 +25,14 @@ const DashboardLayout: React.FC<{ children: React.ReactNode }> = ({ children }) 
                             </NavLink>
                         </li>
                         <li className="mb-4">
-                            <NavLink to="/tasks" className={({ isActive }) => 
+                            <NavLink to="/users" className={({ isActive }) => 
                                 `block px-4 py-3 hover:bg-blue-900 rounded-lg ${isActive ? 'bg-blue-900' : ''}`}>
                                     <Users className="h-6 w-6 inline-block mr-4" />
                                     Manage Users
                             </NavLink>
                         </li>
                         <li className="mb-4">
-                            <NavLink to="/tasks" className={({ isActive }) => 
+                            <NavLink to="/activity" className={({ isActive }) => 
                                 `block px-4 py-3 hover:bg-blue-900 rounded-lg ${isActive ? 'bg-blue-900' : ''}`}>
                                     <Activity className="h-6 w-6 inline-block mr-4" />
                                     Activity Logs

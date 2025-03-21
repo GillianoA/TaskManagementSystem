@@ -23,7 +23,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           /* Protected Routes */
           <Route path="/dashboard" element={<ProtectedRoute><DashboardLayout><Dashboard /></DashboardLayout></ProtectedRoute>} />
-          <Route path="/tasks" element={<ProtectedRoute><TaskList /></ProtectedRoute>} />
+          <Route path="/tasks" element={<ProtectedRoute><DashboardLayout><TaskList /></DashboardLayout></ProtectedRoute>} />
           <Route path="/tasks/:id" element={<ProtectedRoute><TaskDetail /></ProtectedRoute>} />
           <Route path="/tasks/:id/edit" element={<ProtectedRoute><EditTask /></ProtectedRoute>} />
           <Route path="/tasks/create" element={<ProtectedRoute><CreateTask /></ProtectedRoute>} />

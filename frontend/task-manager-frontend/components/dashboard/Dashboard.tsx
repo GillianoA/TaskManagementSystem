@@ -25,7 +25,7 @@ const Dashboard: React.FC = () => {
                 </div>
                 <div className="bg-white p-6 rounded shadow">
                     <h2 className="text-2xl font-semibold text-blue-600">Overdue Tasks</h2>
-                    <p className="text-3xl mt-4">{pendingTasks}</p>
+                    <p className="text-3xl mt-4">{overdueTasks}</p>
                 </div>
             </div>  
         </>

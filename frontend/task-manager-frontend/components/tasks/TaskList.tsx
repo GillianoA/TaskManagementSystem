@@ -48,7 +48,7 @@ const TaskList: React.FC = () => {
     }, []);
 
     return(
-        <div className="min-h-screen bg-gray-100 p-8">
+        <>
             <h1 className="text-4xl font-bold text-blue-600 mb-8">Task List</h1>
             {/* If Error Display red text */}            
             {error && <div className="text-red-500 mb-4">{error}</div>}
@@ -99,7 +99,7 @@ const TaskList: React.FC = () => {
                 ))}
             </div>
             <Link to="/tasks/create" className="text-blue-600 hover:underline">Create Task</Link>
-        </div>
+        </>
     );
 }
 
