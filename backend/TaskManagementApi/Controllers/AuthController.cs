@@ -64,8 +64,19 @@ public class AuthController : ControllerBase{
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginModel model){
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
-        if(user == null || !BCrypt.Net.BCrypt.Verify(model.Password, user.PasswordHash)){
-            return Unauthorized("Invalid credentials.");
+        
+        if (user == null)
+        {
+            Console.WriteLine($"Login failed: User with email {model.Email} not found");
+            return Unauthorized("Invalid credentials");
+        }
+
+        bool passwordValid = BCrypt.Net.BCrypt.Verify(model.Password, user.PasswordHash);
+        
+        if (!passwordValid)
+        {
+            Console.WriteLine($"Login failed: Invalid password for user {model.Email}");
+            return Unauthorized("Invalid credentials");
         }
 
         var token = _jwtService.GenerateToken(user);

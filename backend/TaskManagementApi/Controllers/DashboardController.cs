@@ -12,11 +12,11 @@ public class DashboardController : ControllerBase{
     }
 
     //Get dashboard data
-    [Authorize]
+    [Authorize] 
     [HttpGet("stats")]
     public async Task<IActionResult> GetDashboardData(){
 
-        int userId = 4; //Replace with the actual user ID from the token or session
+        int userId = 1; //Replace with the actual user ID from the token or session
 
         // get user task data 
         var totalTasks = await _context.TaskItems.CountAsync(t => t.UserId == userId);
