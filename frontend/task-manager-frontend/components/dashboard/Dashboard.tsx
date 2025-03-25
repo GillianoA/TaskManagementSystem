@@ -85,19 +85,19 @@ const Dashboard: React.FC = () => {
             {stats && (
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
                     <div className="bg-white p-6 rounded shadow">
-                        <h2 className="text-2xl font-semibold text-blue-600">Total Tasks</h2>
+                        <h2 className="text-lg font-semibold text-gray-600">Total Tasks</h2>
                         <p className="text-3xl mt-4">{stats.totalTasks}</p>
                     </div>
                     <div className="bg-white p-6 rounded shadow">
-                        <h2 className="text-2xl font-semibold text-blue-600">Completed Tasks</h2>
+                        <h2 className="text-xl font-semibold text-gray-600">Completed Tasks</h2>
                         <p className="text-3xl mt-4">{stats.completedTasks}</p>
                     </div>
                     <div className="bg-white p-6 rounded shadow">
-                        <h2 className="text-2xl font-semibold text-blue-600">Pending Tasks</h2>
+                        <h2 className="text-xl font-semibold text-gray-600">Pending Tasks</h2>
                         <p className="text-3xl mt-4">{stats.pendingTasks}</p>
                     </div>
                     <div className="bg-white p-6 rounded shadow">
-                        <h2 className="text-2xl font-semibold text-blue-600">Overdue Tasks</h2>
+                        <h2 className="text-xl font-semibold text-gray-600">Overdue Tasks</h2>
                         <p className="text-3xl mt-4">{stats.overdueTasks}</p>
                     </div>
                 </div>
