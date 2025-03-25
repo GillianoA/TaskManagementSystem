@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 [ApiController]
-[Route("api/[controller]/profile")]
+[Route("api/[controller]")]
 public class UserController : ControllerBase{
     private readonly TaskManagementContext _context;
     public UserController(TaskManagementContext context){
@@ -34,4 +34,17 @@ public class UserController : ControllerBase{
         return NoContent();
     }
 
+    //Get current username
+    [Authorize]
+    [HttpGet("me")]
+    public async Task<IActionResult> GetCurrentUser(){
+    var userId = 4; //Replace with the actual user ID from the token or session
+
+        var username = await _context.Users
+                            .Where(u => u.Id == userId)
+                            .Select(u => u.Username)
+                            .FirstOrDefaultAsync();; //Replace with the actual user ID from the token or session
+
+        return Ok(new { Username = username });
+    }
 }
