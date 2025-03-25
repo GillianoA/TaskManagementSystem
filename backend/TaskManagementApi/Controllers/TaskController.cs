@@ -106,6 +106,7 @@ public class TaskController : ControllerBase{
         task.Title = updatedTask.Title;
         task.Description = updatedTask.Description;
         task.DueDate = updatedTask.DueDate;
+        task.CreatedAt = updatedTask.CreatedAt;
         task.Status = updatedTask.Status;
         task.Priority = updatedTask.Priority;
         task.UserId = updatedTask.UserId;

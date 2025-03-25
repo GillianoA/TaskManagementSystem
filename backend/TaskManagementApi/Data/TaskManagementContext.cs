@@ -30,7 +30,7 @@ public class TaskManagementContext : DbContext{
             entity.Property(t => t.Status).IsRequired().HasDefaultValue("Pending");
             entity.Property(t => t.Priority).IsRequired();
 
-            entity.ToTable(t => t.HasCheckConstraint("CK_TaskItem_Priority", "Priority >= 1 AND Priority <= 5"));
+            entity.ToTable(t => t.HasCheckConstraint("CK_TaskItem_Priority", "Priority >= 1 AND Priority <= 3"));
         });
 
         //configure Category entity

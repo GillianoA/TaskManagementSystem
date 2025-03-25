@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../src/apiService';
 
 interface TaskItem {
     id: number;
@@ -48,7 +48,7 @@ const CreateTask: React.FC = () => {
         };
 
         try{
-            await axios.post('http://localhost:5145/api/task', newTask);
+            await api.post('/task', newTask);
             navigate('/tasks');
         } catch (error: any){
             setError(error.response?.data || "Failed to create task.");

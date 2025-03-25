@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import api from '../../src/apiService';
 
 interface TaskItem {
     id: number;
@@ -22,7 +22,7 @@ const EditTask: React.FC = () => {
     useEffect(() => {
         const fetchTask = async () => {
             try {
-                const response = await axios.get(`http://localhost:5145/api/task/${id}`);
+                const response = await api.get(`/task/${id}`);
                 setTask(response.data);
             } catch (error: any) {
                 setError(error.response?.data || "Failed to fetch task.");
@@ -44,7 +44,7 @@ const EditTask: React.FC = () => {
         if(!task) return;
 
         try{
-            await axios.put(`http://localhost:5145/api/task/${id}`, task);
+            await api.put(`http://localhost:5145/api/task/${id}`, task);
             navigate(`/tasks/${id}`);
         } catch (error: any){
             setError(error.response?.data || "Failed to update task.");

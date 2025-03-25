@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../../src/apiService';
 import { Link } from 'react-router-dom';
 
 interface TaskItem {
@@ -37,7 +37,7 @@ const TaskList: React.FC = () => {
     useEffect(() => {
         const fetchTasks = async () => {
             try {
-                const response = await axios.get('http://localhost:5145/api/task');
+                const response = await api.get('/task');
                 setTasks(response.data);
             } catch (error: any) {
                 setError(error.response?.data || "Failed to fetch tasks.");

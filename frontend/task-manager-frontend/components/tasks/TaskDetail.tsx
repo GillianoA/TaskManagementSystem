@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../../src/apiService';
 
 interface TaskItem {
     id: number;
@@ -22,7 +22,7 @@ const TaskDetail: React.FC = () => {
     useEffect(() => {
         const fetchTask = async () => {
             try {
-                const response = await axios.get(`http://localhost:5145/api/task/${id}`);
+                const response = await api.get(`http://localhost:5145/api/task/${id}`);
                 setTask(response.data);
             } catch (error: any) {
                 setError(error.response?.data || "Failed to fetch task.");
@@ -36,7 +36,7 @@ const TaskDetail: React.FC = () => {
     const handleDelete = async () => {
         if(window.confirm('Are you sure you want to delete this task?')){
             try{
-                await axios.delete(`http://localhost:5145/api/task/${id}`);
+                await api.delete(`http://localhost:5145/api/task/${id}`);
                 navigate('/tasks');
             } catch (error: any){
                 setError(error.response?.data || "Failed to delete task.");

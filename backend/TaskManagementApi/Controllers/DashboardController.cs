@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -27,5 +28,65 @@ public class DashboardController : ControllerBase{
         return Ok(new {
             totalTasks, completedTasks, pendingTasks, overdueTasks
         });
+    }
+
+    //Get recent tasks
+    [Authorize] 
+    [HttpGet("recent-activity")]
+    public async Task<IActionResult> GetRecentTasks(){
+        int userId = 1; //Replace with the actual user ID from the token or session
+
+        var recentTasks = await _context.TaskItems
+            .Where(t => t.UserId == userId)
+            .OrderByDescending(t => t.CreatedAt)
+            .Take(5)
+            .Select(t => new {
+                t.Id,
+                t.Title,
+                t.Status,
+                t.CreatedAt
+            })
+            .ToListAsync();
+
+        return Ok(recentTasks);
+    }
+
+    //Get upcoming tasks
+    [Authorize] 
+    [HttpGet("upcoming-tasks")]
+    public async Task<IActionResult> GetUpcomingTasks(){
+        int userId = 1; //Replace with the actual user ID from the token or session
+
+        var upcomingTasks = await _context.TaskItems
+            .Where(t => t.UserId == userId && t.DueDate > DateTime.Now)
+            .OrderBy(t => t.DueDate)
+            .Take(3)
+            .Select(t => new {
+                t.Id,
+                t.Title,
+                t.DueDate,
+                IsOverdue = t.DueDate < DateTime.Now
+            })
+            .ToListAsync();
+
+        return Ok(upcomingTasks);
+    }
+
+    //get priority distributuion
+    [Authorize]
+    [HttpGet("priority-distribution")]
+    public async Task<IActionResult> GetPriorityDistribution(){
+        int userId = 1; //Replace with the actual user ID from the token or session
+
+        var priorityDistribution = await _context.TaskItems
+            .Where(t => t.UserId == userId)
+            .GroupBy(t => t.Priority == 1 ? "Low" : t.Priority == 2 ? "Medium" : "High")
+            .Select(g => new {
+                Priority = g.Key,
+                Count = g.Count()
+            })
+            .ToListAsync();
+
+        return Ok(priorityDistribution);
     }
 }
