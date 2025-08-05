@@ -98,20 +98,19 @@ public class TaskController : ControllerBase{
     [Authorize]
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateTask(int id, [FromBody] TaskDTO updatedTask){
-        if(_context.TaskItems.Find(id) == null){
+        var task = await _context.TaskItems.FindAsync(id);
+        if(task == null){
             return NotFound("Task not found.");
         }
-        var task = _context.TaskItems.Find(id);
 
         task.Title = updatedTask.Title;
         task.Description = updatedTask.Description;
         task.DueDate = updatedTask.DueDate;
-        task.CreatedAt = updatedTask.CreatedAt;
         task.Status = updatedTask.Status;
         task.Priority = updatedTask.Priority;
         task.UserId = updatedTask.UserId;
         task.CategoryId = updatedTask.CategoryId;
-        
+
         _context.TaskItems.Update(task);
         await _context.SaveChangesAsync();
         return NoContent();
